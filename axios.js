@@ -47,6 +47,11 @@ export default {
             return response;
         })
     },
+    all2(get1, get2){
+        return axios.all([get1, get2]).then(axios.spread(function (res1, res2) {
+            return res1.data.data.concat(res2.data.data)
+        }));
+    }
 };
 
 
